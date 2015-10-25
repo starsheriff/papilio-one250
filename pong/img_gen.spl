@@ -1,0 +1,8 @@
+[Inputs]
+clk
+video_on
+=x_pos[9:0]=
+=y_pos[9:0]=
+[Outputs]
+=rgb[7:0]=
+[BiDir]

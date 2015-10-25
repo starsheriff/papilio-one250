@@ -1,0 +1,3 @@
+vhdl work "sync_module.vhd"
+vhdl work "img_gen.vhd"
+vhdl work "vga_switch_input.vhd"

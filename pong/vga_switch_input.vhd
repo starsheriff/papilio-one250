@@ -19,11 +19,11 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -36,6 +36,9 @@ entity vga_switch_input is
     switches: in STD_LOGIC_VECTOR(7 downto 0);
     leds : out STD_LOGIC_VECTOR(7 downto 0);
     
+    JOY_LEFT: in STD_LOGIC;
+    JOY_RIGHT: in STD_LOGIC;
+    
     hsync : out STD_LOGIC;
     vsync : out STD_LOGIC;
     
@@ -46,51 +49,60 @@ entity vga_switch_input is
 end vga_switch_input;
 
 architecture Behavioral of vga_switch_input is
-  signal hcount: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
-  signal vcount: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
-begin
+  --signal hcount: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+  --signal vcount: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');  
+  signal x_pos, y_pos: STD_LOGIC_VECTOR(9 downto 0);
+  signal rgb: STD_LOGIC_VECTOR(7 downto 0);
+  --signal x_pos: integer range 0 to 799;
+  signal video_on: STD_LOGIC;
+  
+  COMPONENT sync_module
+    Port ( start : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           clk : in  STD_LOGIC;
+           hsync : out  STD_LOGIC;
+           vsync : out  STD_LOGIC;
+           x_pos : out  STD_LOGIC_VECTOR(9 downto 0);
+           y_pos : out  STD_LOGIC_VECTOR(9 downto 0);
+           video_on : out STD_LOGIC);
+  END COMPONENT;
+  
+  COMPONENT img_gen
+    Port ( x_pos : in  STD_LOGIC_VECTOR (9 downto 0);
+           y_pos : in  STD_LOGIC_VECTOR (9 downto 0);
+           clk : in  STD_LOGIC;
+           JOY_LEFT: in STD_LOGIC;
+           JOY_RIGHT: in STD_LOGIC;
+           video_on : in STD_LOGIC;
+           rgb : out  STD_LOGIC_VECTOR (7 downto 0));
+  END COMPONENT;
+  
+  
+begin 
+  Isync_module : sync_module
+    PORT MAP (
+      clk => clk, start => '0', reset => '0',
+      hsync => hsync, vsync => vsync,
+      x_pos => x_pos, y_pos => y_pos, 
+      video_on => video_on);
+      
+  Iimg_gen : img_gen
+    PORT MAP (
+      x_pos => x_pos, y_pos => y_pos, clk => clk,
+      video_on => video_on, rgb => rgb, 
+      JOY_LEFT => JOY_LEFT, JOY_RIGHT => JOY_RIGHT);
+      
   leds <= switches;
   
-  process(clk, hcount)
-  begin 
-    if rising_edge(clk) then
-      if hcount = 799 then
-        hcount <= "0000000000";
-        if vcount = 524 then
-          vcount <= "0000000000";
-        else
-          vcount <= vcount+1;
-        end if;
-      else
-        hcount <= hcount+1;
-      end if;
-      
-      if (vcount >= 490) and (vcount <= 492) then
-        vsync <= '0';
-      else
-        vsync <= '1';
-      end if;
-      
-      if (hcount >= 656) and (hcount <= 752) then
-        hsync <= '0';
-      else
-        hsync <= '1';
-      end if;
-      
-      if (hcount <= 640) and (vcount <= 480) then
-        red <= switches(7 downto 5);
-        green <= switches(4 downto 2);
-        blue <= switches(1 downto 0);
-      else
-        red <= "000";
-        green <= "000";
-        blue <= "00";
-      end if;
-      
-    end if;
-  end process;
-  
-
+  red <= rgb(7 downto 5);
+  green <= rgb(4 downto 2);
+  blue <= rgb(1 downto 0);
+  --red <= "000" when (video_on = '0')  else 
+  --  switches(7 downto 5);
+  --green <= "000" when video_on = '0' else
+  --  switches(4 downto 2);
+  --blue <= "00" when video_on = '0' else
+  --  switches(1 downto 0);
 
 end Behavioral;
 

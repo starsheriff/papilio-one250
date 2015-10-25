@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jo/workspaces/papilio-one250/pong/vga_switch_input.ncd
+OUTFILE=/home/jo/workspaces/papilio-one250/pong/vga_switch_input.bit
+FAMILY=Spartan3E
+PART=xc3s250e-5vq100
+WORKINGDIR=/home/jo/workspaces/papilio-one250/pong
+LICENSE=WebPack
+USER_INFO=211096387_0_0_751

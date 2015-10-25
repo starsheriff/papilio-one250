@@ -1,0 +1,5 @@
+set -tmpdir "/home/jo/workspaces/papilio-one250/pong/xst/projnav.tmp"
+set -xsthdpdir "/home/jo/workspaces/papilio-one250/pong/xst"
+elaborate
+-ifn img_gen.prj
+-ifmt mixed

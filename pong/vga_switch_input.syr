@@ -1,0 +1,587 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.11 secs
+ 
+--> 
+Reading design: vga_switch_input.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "vga_switch_input.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "vga_switch_input"
+Output Format                      : NGC
+Target Device                      : xc3s250e-5-vq100
+
+---- Source Options
+Top Module Name                    : vga_switch_input
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/jo/workspaces/papilio-one250/pong/sync_module.vhd" in Library work.
+Architecture behavioral of Entity sync_module is up to date.
+Compiling vhdl file "/home/jo/workspaces/papilio-one250/pong/img_gen.vhd" in Library work.
+Entity <img_gen> compiled.
+Entity <img_gen> (Architecture <behavioral>) compiled.
+Compiling vhdl file "/home/jo/workspaces/papilio-one250/pong/vga_switch_input.vhd" in Library work.
+Architecture behavioral of Entity vga_switch_input is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <vga_switch_input> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <sync_module> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <img_gen> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <vga_switch_input> in library <work> (Architecture <behavioral>).
+Entity <vga_switch_input> analyzed. Unit <vga_switch_input> generated.
+
+Analyzing Entity <sync_module> in library <work> (Architecture <behavioral>).
+Entity <sync_module> analyzed. Unit <sync_module> generated.
+
+Analyzing Entity <img_gen> in library <work> (Architecture <behavioral>).
+Entity <img_gen> analyzed. Unit <img_gen> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <sync_module>.
+    Related source file is "/home/jo/workspaces/papilio-one250/pong/sync_module.vhd".
+WARNING:Xst:647 - Input <start> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <x_ct> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <video> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <vsync>.
+    Found 10-bit register for signal <x_pos>.
+    Found 1-bit register for signal <video_on>.
+    Found 10-bit register for signal <y_pos>.
+    Found 1-bit register for signal <hsync>.
+    Found 10-bit up counter for signal <hcount>.
+    Found 10-bit comparator greatequal for signal <hsync$cmp_ge0000> created at line 74.
+    Found 10-bit comparator lessequal for signal <hsync$cmp_le0000> created at line 74.
+    Found 10-bit up counter for signal <vcount>.
+    Found 10-bit comparator lessequal for signal <video_on$cmp_le0000> created at line 81.
+    Found 10-bit comparator lessequal for signal <video_on$cmp_le0001> created at line 81.
+    Found 10-bit comparator greatequal for signal <vsync$cmp_ge0000> created at line 67.
+    Found 10-bit comparator lessequal for signal <vsync$cmp_le0000> created at line 67.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  23 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <sync_module> synthesized.
+
+
+Synthesizing Unit <img_gen>.
+    Related source file is "/home/jo/workspaces/papilio-one250/pong/img_gen.vhd".
+WARNING:Xst:1780 - Signal <rgb_wall> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <rgb>.
+    Found 32-bit register for signal <ball_l>.
+    Found 32-bit register for signal <ball_l_next>.
+    Found 32-bit adder for signal <ball_l_next$add0000> created at line 148.
+    Found 32-bit adder for signal <ball_on$addsub0000> created at line 160.
+    Found 32-bit adder for signal <ball_on$addsub0001> created at line 160.
+    Found 32-bit comparator greater for signal <ball_on$cmp_gt0000> created at line 160.
+    Found 32-bit comparator greater for signal <ball_on$cmp_gt0001> created at line 160.
+    Found 32-bit comparator less for signal <ball_on$cmp_lt0000> created at line 160.
+    Found 32-bit comparator less for signal <ball_on$cmp_lt0001> created at line 160.
+    Found 32-bit register for signal <ball_t>.
+    Found 32-bit register for signal <ball_t_next>.
+    Found 32-bit adder for signal <ball_t_next$add0000> created at line 149.
+    Found 32-bit register for signal <bar_l>.
+    Found 32-bit register for signal <bar_l_next>.
+    Found 32-bit comparator greater for signal <bar_l_next$cmp_gt0000> created at line 118.
+    Found 32-bit comparator less for signal <bar_l_next$cmp_lt0000> created at line 119.
+    Found 32-bit addsub for signal <bar_l_next$mux0000>.
+    Found 32-bit adder for signal <bar_on$add0000> created at line 157.
+    Found 32-bit comparator greater for signal <bar_on$cmp_gt0000> created at line 157.
+    Found 10-bit comparator greater for signal <bar_on$cmp_gt0001> created at line 157.
+    Found 32-bit comparator less for signal <bar_on$cmp_lt0000> created at line 157.
+    Found 10-bit comparator less for signal <bar_on$cmp_lt0001> created at line 157.
+    Found 32-bit adder for signal <refresh_next$addsub0000> created at line 98.
+    Found 32-bit register for signal <refresh_reg>.
+    Found 10-bit comparator greater for signal <wall_on$cmp_gt0000> created at line 154.
+    Found 10-bit comparator greater for signal <wall_on$cmp_gt0001> created at line 154.
+    Found 10-bit comparator less for signal <wall_on$cmp_lt0000> created at line 154.
+    Found 10-bit comparator less for signal <wall_on$cmp_lt0001> created at line 154.
+    Found 3-bit register for signal <xv_next>.
+    Found 32-bit comparator greater for signal <xv_next$cmp_gt0000> created at line 143.
+    Found 32-bit comparator less for signal <xv_next$cmp_lt0000> created at line 142.
+    Found 3-bit register for signal <xv_reg>.
+    Found 3-bit register for signal <yv_next>.
+    Found 32-bit subtractor for signal <yv_next$addsub0000> created at line 136.
+    Found 32-bit comparator greater for signal <yv_next$cmp_gt0000> created at line 136.
+    Found 32-bit comparator greater for signal <yv_next$cmp_gt0001> created at line 136.
+    Found 32-bit comparator less for signal <yv_next$cmp_lt0000> created at line 137.
+    Found 32-bit comparator less for signal <yv_next$cmp_lt0001> created at line 136.
+    Found 3-bit register for signal <yv_reg>.
+    Summary:
+	inferred 244 D-type flip-flop(s).
+	inferred   8 Adder/Subtractor(s).
+	inferred  20 Comparator(s).
+Unit <img_gen> synthesized.
+
+
+Synthesizing Unit <vga_switch_input>.
+    Related source file is "/home/jo/workspaces/papilio-one250/pong/vga_switch_input.vhd".
+Unit <vga_switch_input> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 32-bit adder                                          : 6
+ 32-bit addsub                                         : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 17
+ 1-bit register                                        : 3
+ 10-bit register                                       : 2
+ 3-bit register                                        : 4
+ 32-bit register                                       : 7
+ 8-bit register                                        : 1
+# Comparators                                          : 26
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 3
+ 10-bit comparator lessequal                           : 4
+ 32-bit comparator greater                             : 7
+ 32-bit comparator less                                : 7
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1293 - FF/Latch <yv_next_0> has a constant value of 1 in block <Iimg_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <xv_next_0> has a constant value of 1 in block <Iimg_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <xv_reg_0> has a constant value of 1 in block <Iimg_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <yv_reg_0> has a constant value of 1 in block <Iimg_gen>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 8
+ 32-bit adder                                          : 6
+ 32-bit addsub                                         : 1
+ 32-bit subtractor                                     : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 267
+ Flip-Flops                                            : 267
+# Comparators                                          : 26
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 3
+ 10-bit comparator lessequal                           : 4
+ 32-bit comparator greater                             : 7
+ 32-bit comparator less                                : 7
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <yv_next_0> has a constant value of 1 in block <img_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <xv_next_0> has a constant value of 1 in block <img_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <xv_reg_0> has a constant value of 1 in block <img_gen>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <yv_reg_0> has a constant value of 1 in block <img_gen>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <rgb_1> in Unit <img_gen> is equivalent to the following FF/Latch, which will be removed : <rgb_2> 
+INFO:Xst:2261 - The FF/Latch <rgb_3> in Unit <img_gen> is equivalent to the following FF/Latch, which will be removed : <rgb_7> 
+INFO:Xst:2261 - The FF/Latch <rgb_4> in Unit <img_gen> is equivalent to the following 2 FFs/Latches, which will be removed : <rgb_5> <rgb_6> 
+
+Optimizing unit <vga_switch_input> ...
+
+Optimizing unit <sync_module> ...
+
+Optimizing unit <img_gen> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block vga_switch_input, actual ratio is 15.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 279
+ Flip-Flops                                            : 279
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : vga_switch_input.ngr
+Top Level Output File Name         : vga_switch_input
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 29
+
+Cell Usage :
+# BELS                             : 1336
+#      GND                         : 1
+#      INV                         : 70
+#      LUT1                        : 141
+#      LUT2                        : 197
+#      LUT2_L                      : 3
+#      LUT3                        : 41
+#      LUT3_D                      : 1
+#      LUT3_L                      : 3
+#      LUT4                        : 106
+#      LUT4_D                      : 1
+#      LUT4_L                      : 6
+#      MUXCY                       : 498
+#      VCC                         : 1
+#      XORCY                       : 267
+# FlipFlops/Latches                : 279
+#      FD                          : 166
+#      FDE                         : 32
+#      FDR                         : 67
+#      FDRE                        : 12
+#      FDSE                        : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 28
+#      IBUF                        : 10
+#      OBUF                        : 18
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s250evq100-5 
+
+ Number of Slices:                      354  out of   2448    14%  
+ Number of Slice Flip Flops:            279  out of   4896     5%  
+ Number of 4 input LUTs:                569  out of   4896    11%  
+ Number of IOs:                          29
+ Number of bonded IOBs:                  29  out of     66    43%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------------------------+----------------------------+-------+
+Clock Signal                                                | Clock buffer(FF name)      | Load  |
+------------------------------------------------------------+----------------------------+-------+
+clk                                                         | BUFGP                      | 179   |
+Iimg_gen/refresh_tick1(Iimg_gen/refresh_tick_cmp_eq000049:O)| BUFG(*)(Iimg_gen/xv_next_2)| 100   |
+------------------------------------------------------------+----------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 8.451ns (Maximum Frequency: 118.326MHz)
+   Minimum input arrival time before clock: 5.781ns
+   Maximum output required time after clock: 4.134ns
+   Maximum combinational path delay: 4.632ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 8.451ns (frequency: 118.326MHz)
+  Total number of paths / destination ports: 9417 / 163
+-------------------------------------------------------------------------
+Delay:               8.451ns (Levels of Logic = 34)
+  Source:            Iimg_gen/ball_l_3 (FF)
+  Destination:       Iimg_gen/rgb_4 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Iimg_gen/ball_l_3 to Iimg_gen/rgb_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               7   0.514   0.754  Iimg_gen/ball_l_3 (Iimg_gen/ball_l_3)
+     LUT1:I0->O            1   0.612   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<3>_rt (Iimg_gen/Madd_ball_on_addsub0000_cy<3>_rt)
+     MUXCY:S->O            1   0.404   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<3> (Iimg_gen/Madd_ball_on_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<4> (Iimg_gen/Madd_ball_on_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<5> (Iimg_gen/Madd_ball_on_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<6> (Iimg_gen/Madd_ball_on_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<7> (Iimg_gen/Madd_ball_on_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<8> (Iimg_gen/Madd_ball_on_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<9> (Iimg_gen/Madd_ball_on_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<10> (Iimg_gen/Madd_ball_on_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<11> (Iimg_gen/Madd_ball_on_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<12> (Iimg_gen/Madd_ball_on_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<13> (Iimg_gen/Madd_ball_on_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<14> (Iimg_gen/Madd_ball_on_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<15> (Iimg_gen/Madd_ball_on_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<16> (Iimg_gen/Madd_ball_on_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<17> (Iimg_gen/Madd_ball_on_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<18> (Iimg_gen/Madd_ball_on_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<19> (Iimg_gen/Madd_ball_on_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<20> (Iimg_gen/Madd_ball_on_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<21> (Iimg_gen/Madd_ball_on_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<22> (Iimg_gen/Madd_ball_on_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<23> (Iimg_gen/Madd_ball_on_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<24> (Iimg_gen/Madd_ball_on_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<25> (Iimg_gen/Madd_ball_on_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<26> (Iimg_gen/Madd_ball_on_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<27> (Iimg_gen/Madd_ball_on_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Madd_ball_on_addsub0000_cy<28> (Iimg_gen/Madd_ball_on_addsub0000_cy<28>)
+     XORCY:CI->O           1   0.699   0.360  Iimg_gen/Madd_ball_on_addsub0000_xor<29> (Iimg_gen/ball_on_addsub0000<29>)
+     LUT4:I3->O            1   0.612   0.000  Iimg_gen/Mcompar_ball_on_cmp_lt0000_lut<14> (Iimg_gen/Mcompar_ball_on_cmp_lt0000_lut<14>)
+     MUXCY:S->O            1   0.404   0.000  Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<14> (Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<14>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<15> (Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<15>)
+     MUXCY:CI->O           1   0.399   0.360  Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<16> (Iimg_gen/Mcompar_ball_on_cmp_lt0000_cy<16>)
+     LUT4:I3->O            4   0.612   0.502  Iimg_gen/ball_on_and00001 (Iimg_gen/ball_on)
+     LUT4:I3->O            1   0.612   0.000  Iimg_gen/rgb_transient<4>1 (Iimg_gen/rgb_transient<4>)
+     FD:D                      0.268          Iimg_gen/rgb_4
+    ----------------------------------------
+    Total                      8.451ns (6.476ns logic, 1.976ns route)
+                                       (76.6% logic, 23.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Iimg_gen/refresh_tick1'
+  Total number of paths / destination ports: 624 / 64
+-------------------------------------------------------------------------
+Offset:              5.781ns (Levels of Logic = 34)
+  Source:            JOY_LEFT (PAD)
+  Destination:       Iimg_gen/bar_l_next_31 (FF)
+  Destination Clock: Iimg_gen/refresh_tick1 rising
+
+  Data Path: JOY_LEFT to Iimg_gen/bar_l_next_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            34   1.106   1.142  JOY_LEFT_IBUF (JOY_LEFT_IBUF)
+     LUT2:I1->O            1   0.612   0.357  Iimg_gen/bar_l_next_and00012 (Iimg_gen/bar_l_next_and0001)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<0> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<0>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<1> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<2> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<3> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<3>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<4> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<4>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<5> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<5>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<6> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<6>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<7> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<7>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<8> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<8>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<9> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<9>)
+     MUXCY:CI->O           1   0.052   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<10> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<10>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<11> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<11>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<12> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<12>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<13> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<13>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<14> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<14>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<15> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<15>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<16> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<16>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<17> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<17>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<18> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<18>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<19> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<19>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<20> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<20>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<21> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<21>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<22> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<22>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<23> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<23>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<24> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<24>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<25> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<25>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<26> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<26>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<27> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<27>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<28> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<28>)
+     MUXCY:CI->O           1   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<29> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<29>)
+     MUXCY:CI->O           0   0.051   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_cy<30> (Iimg_gen/Maddsub_bar_l_next_mux0000_cy<30>)
+     XORCY:CI->O           1   0.699   0.000  Iimg_gen/Maddsub_bar_l_next_mux0000_xor<31> (Iimg_gen/bar_l_next_mux0000<31>)
+     FDE:D                     0.268          Iimg_gen/bar_l_next_31
+    ----------------------------------------
+    Total                      5.781ns (4.281ns logic, 1.499ns route)
+                                       (74.1% logic, 25.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 10 / 10
+-------------------------------------------------------------------------
+Offset:              4.134ns (Levels of Logic = 1)
+  Source:            Iimg_gen/rgb_4 (FF)
+  Destination:       green<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Iimg_gen/rgb_4 to green<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               3   0.514   0.451  Iimg_gen/rgb_4 (Iimg_gen/rgb_4)
+     OBUF:I->O                 3.169          green_2_OBUF (green<2>)
+    ----------------------------------------
+    Total                      4.134ns (3.683ns logic, 0.451ns route)
+                                       (89.1% logic, 10.9% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Delay:               4.632ns (Levels of Logic = 2)
+  Source:            switches<7> (PAD)
+  Destination:       leds<7> (PAD)
+
+  Data Path: switches<7> to leds<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.357  switches_7_IBUF (leds_7_OBUF)
+     OBUF:I->O                 3.169          leds_7_OBUF (leds<7>)
+    ----------------------------------------
+    Total                      4.632ns (4.275ns logic, 0.357ns route)
+                                       (92.3% logic, 7.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 15.16 secs
+ 
+--> 
+
+
+Total memory usage is 631864 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   13 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

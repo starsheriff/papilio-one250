@@ -1,0 +1,6 @@
+AR img_gen behavioral /home/jo/workspaces/papilio-one250/pong/img_gen.vhd sub00/vhpl05 1445783081
+EN img_gen NULL /home/jo/workspaces/papilio-one250/pong/img_gen.vhd sub00/vhpl04 1445783080
+AR sync_module behavioral /home/jo/workspaces/papilio-one250/pong/sync_module.vhd sub00/vhpl03 1445783079
+EN vga_switch_input NULL /home/jo/workspaces/papilio-one250/pong/vga_switch_input.vhd sub00/vhpl00 1445783082
+AR vga_switch_input behavioral /home/jo/workspaces/papilio-one250/pong/vga_switch_input.vhd sub00/vhpl01 1445783083
+EN sync_module NULL /home/jo/workspaces/papilio-one250/pong/sync_module.vhd sub00/vhpl02 1445783078

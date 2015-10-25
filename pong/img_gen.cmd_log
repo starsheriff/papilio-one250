@@ -1,0 +1,6 @@
+vhdtdtfi -lib work img_gen.vhd -prj pong -o img_gen.spl -module img_gen -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w img_gen.spl /home/jo/workspaces/papilio-one250/pong/img_gen.sym 
+vhdtdtfi -lib work img_gen.vhd -prj pong -o img_gen.spl -module img_gen -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w img_gen.spl /home/jo/workspaces/papilio-one250/pong/img_gen.sym 
+vhdtdtfi -lib work img_gen.vhd -prj pong -o img_gen.spl -module img_gen -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w img_gen.spl /home/jo/workspaces/papilio-one250/pong/img_gen.sym 

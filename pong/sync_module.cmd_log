@@ -1,0 +1,16 @@
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 
+vhdtdtfi -lib work sync_module.vhd -prj pong -o sync_module.spl -module sync_module -template /home/jo/.local/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w sync_module.spl /home/jo/workspaces/papilio-one250/pong/sync_module.sym 

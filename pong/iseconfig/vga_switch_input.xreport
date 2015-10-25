@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-10-24T22:27:09</DateModified>
+  <DateModified>2015-10-25T11:02:43</DateModified>
   <ModuleName>vga_switch_input</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2015-10-24T22:42:00</SummaryTimeStamp>
   <SavedFilePath>/home/jo/workspaces/papilio-one250/pong/iseconfig/vga_switch_input.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jo/workspaces/papilio-one250/pong/</ImplementationReportsDirectory>
   <DateInitialized>2015-10-18T21:31:10</DateInitialized>

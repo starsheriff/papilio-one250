@@ -1,0 +1,11 @@
+[Inputs]
+clk
+=switches[7:0]=
+[Outputs]
+hsync
+vsync
+=leds[7:0]=
+=red[2:0]=
+=green[2:0]=
+=blue[1:0]=
+[BiDir]
