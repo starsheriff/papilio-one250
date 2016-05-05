@@ -1,0 +1,3 @@
+NET "clk" LOC = "P89" | IOSTANDARD = LVCMOS25;
+NET "data_out" LOC = "P90" | IOSTANDARD = LVCMOS25;
+NET "debug_out" LOC = "P17" | IOSTANDARD = LVTTL; 
