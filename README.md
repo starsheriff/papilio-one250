@@ -5,4 +5,6 @@ Projects for the Papilio One 250k
 * uart_3: constantly sending character defined by input switches
 * uart_4: send character on button press (not debounced)
 * uart_5: same as uart_4 + button debounced
-*
+* quadrature_encoder_1x:
+* quadrature_encoder_2x:
+* quadrature_encoder_4x:
